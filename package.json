@@ -4,9 +4,9 @@
   "description": "",
   "main": "build/server.js",
   "scripts": {
-    "build": "rimraf ./build && babel ./ --copy-files --output ./build --ignore ./node_modules,./build",
+    "build": "rimraf ./build && babel ./ --out-dir ./build --ignore ./node_modules,./build --copy-files",
     "start": "npm run build && node ./build/server.js",
-    "dev:start": "nodemon --ignore ./build --exec npm start"
+    "dev:start": "nodemon --ignore ./build -e js,json,ejs --exec npm start"
   },
   "author": "",
   "license": "ISC",
@@ -18,11 +18,11 @@
     "discord.js": "^12.2.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
-    "helmet": "^3.23.3",
-    "rimraf": "^3.0.2"
+    "helmet": "^3.23.3"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2"
   }
 }
