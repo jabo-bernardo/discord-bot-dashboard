@@ -3,14 +3,27 @@
     <%- include("../partials/_head.ejs") %> 
     <body>
 
-        <% for (let i = 0; i < guildList.length; i++) { %>
-            
-            <div class="serverCard">
-                <img src="<%- `https://cdn.discordapp.com/icons/${guildList[i].id}/${guildList[i].icon}.png` %>">
-                <h1><%- guildList[i].name %></h1>
-            </div>
-
-        <% } %>
+        <div class="serverList">
+            <% for (let i = 0; i < guildList.length; i++) { %>            
+                <div class="serverCard">
+                    <div class="cardContent">
+                        <div class="serverImage">
+                            <% if(guildList[i].icon != null) { %>
+                                <img src="<%- `https://cdn.discordapp.com/icons/${guildList[i].id}/${guildList[i].icon}.png` %>">   
+                            <% } else { %> 
+                                <img src="<%- `https://cdn.discordapp.com/icons/725327265373880352/8ccb106323d412145701580d5ef4827b.png` %>">       
+                            <% } %> 
+                        </div>
+                        <div class="serverInfo">
+                            <h1><%- guildList[i].name %></h1>
+                        </div>
+                    </div>
+                    <div class="cardInteraction">
+                        <a href=<%- `https://discord.com/oauth2/authorize?client_id=726349447704870934&permissions=10240&scope=bot&guild_id=${guildList[i].id}&disable_guild_select=true` %> target="_blank">Invite</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
  
     </body>
 </html>

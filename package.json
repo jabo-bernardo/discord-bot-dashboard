@@ -5,7 +5,7 @@
   "main": "build/server.js",
   "scripts": {
     "build": "rimraf ./build && babel ./ --out-dir ./build --ignore ./node_modules,./build --copy-files",
-    "start": "npm run build && node ./build/server.js",
+    "start": "npm run build && concurrently --kill-others \"node ./build/server.js\" \"node ./build/client/bot.js\" ",
     "dev:start": "nodemon --ignore ./build -e js,json,ejs --exec npm start"
   },
   "author": "",
@@ -25,6 +25,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2"
