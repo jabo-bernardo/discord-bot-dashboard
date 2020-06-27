@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <%- include("../partials/_head.ejs") %> 
+    <body>
+
+        <% for (let i = 0; i < guildList.length; i++) { %>
+            
+            <div class="serverCard">
+                <img src="<%- `https://cdn.discordapp.com/icons/${guildList[i].id}/${guildList[i].icon}.png` %>">
+                <h1><%- guildList[i].name %></h1>
+            </div>
+
+        <% } %>
+ 
+    </body>
+</html>
